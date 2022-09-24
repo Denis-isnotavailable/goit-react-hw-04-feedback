@@ -50,14 +50,14 @@ export class App extends Component {
         <h1 style={{ padding: "12px" }}>Cafe Expresso</h1>
 
         <Section title="Please leave feedback">
-          <FeedbackOptions options={5} onLeaveFeedback={this.handleClick} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} />
+          <FeedbackOptions options={Object.keys(this.state)} onLeaveFeedback={this.handleClick} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} />
         </Section>        
          
         <Section title="Statistics">
           { !good && !neutral && !bad ?
             <Notification message="There is no feedback" /> :
             <Statistics good={good} neutral={neutral} bad={bad} total={this.countTotalFeedback()} positivePercentage={this.countPositiveFeedbackPercentage()} /> }          
-        </Section>       
+        </Section>
       </>      
       );
   }

@@ -5,18 +5,30 @@ import { FeedbackOptionsStyled } from "components/FeedbackOptions/FeedbackOption
 export class FeedbackOptions extends Component {
 
     render() {
-        const { onLeaveFeedback, onMouseDown, onMouseUp } = this.props;
+        const { options, onLeaveFeedback, onMouseDown, onMouseUp } = this.props;
 
         return <FeedbackOptionsStyled>
-                <li><button type="button" name="good" onClick={ onLeaveFeedback } onMouseDown={onMouseDown} onMouseUp={onMouseUp}>Good</button></li>
-                <li><button type="button" name="neutral" onClick={ onLeaveFeedback } onMouseDown={onMouseDown} onMouseUp={onMouseUp}>Neutral</button></li>
-                <li><button type="button" name="bad" onClick={ onLeaveFeedback } onMouseDown={onMouseDown} onMouseUp={onMouseUp}>Bad</button></li>
+
+            {options.map((option, index) => {
+                const buttonName = option[0].toUpperCase() + option.substring(1);
+                return <li key={index}>
+                    <button type="button"
+                        name={option}
+                        onClick={onLeaveFeedback}
+                        onMouseDown={onMouseDown}
+                        onMouseUp={onMouseUp}
+                    >
+                        {buttonName}
+                    </button>
+                </li>;
+            })}
             </FeedbackOptionsStyled>
     }
 }
 
 FeedbackOptions.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.oneOf(['good', 'neutral', 'bad'])).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired,
-    onMouseDown: PropTypes.func,
-    onMouseUp: PropTypes.func,
+    onMouseDown: PropTypes.func.isRequired,
+    onMouseUp: PropTypes.func.isRequired,
 }
