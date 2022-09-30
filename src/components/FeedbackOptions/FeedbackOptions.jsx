@@ -1,13 +1,10 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FeedbackOptionsStyled } from "components/FeedbackOptions/FeedbackOptions.styled";
 
-export class FeedbackOptions extends Component {
+export const FeedbackOptions = ({ options, onLeaveFeedback, onMouseDown, onMouseUp }) => {
 
-    render() {
-        const { options, onLeaveFeedback, onMouseDown, onMouseUp } = this.props;
-
-        return <FeedbackOptionsStyled>
+    return <FeedbackOptionsStyled>
 
             {options.map((option, index) => {
                 const buttonName = option[0].toUpperCase() + option.substring(1);
@@ -23,7 +20,6 @@ export class FeedbackOptions extends Component {
                 </li>;
             })}
             </FeedbackOptionsStyled>
-    }
 }
 
 FeedbackOptions.propTypes = {
