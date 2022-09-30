@@ -47,27 +47,27 @@ export const App = () => {
   }
 
   return (
-      <>
-        <h1 style={{ padding: "12px" }}>Cafe Expresso</h1>
+        <>
+          <h1 style={{ padding: "12px" }}>Cafe Expresso</h1>
 
-        <Section title="Please leave feedback">
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={handleClick} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} />
-        </Section>        
-         
-        <Section title="Statistics">
-          { !good && !neutral && !bad ?
-            <Notification message="There is no feedback" /> :
-            <Statistics good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} positivePercentage={countPositiveFeedbackPercentage()} /> }          
-        </Section>
-      </>      
+          <Section title="Please leave feedback">
+            <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={handleClick} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} />
+          </Section>        
+          
+          <Section title="Statistics">
+            { !good && !neutral && !bad ?
+              <Notification message="There is no feedback" /> :
+              <Statistics good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} positivePercentage={countPositiveFeedbackPercentage()} /> }          
+          </Section>
+        </>      
       );
 };
 
 
 const handleMouseDown = e => {
-    e.currentTarget.style.backgroundColor = "#00bbff";
-  }
+  e.currentTarget.style.backgroundColor = "#00bbff";
+}
 
-  const handleMouseUp = e => {
-    e.currentTarget.style.backgroundColor = "#e0e0e0";
-  }
+const handleMouseUp = e => {
+  e.currentTarget.style.backgroundColor = "#e0e0e0";
+}

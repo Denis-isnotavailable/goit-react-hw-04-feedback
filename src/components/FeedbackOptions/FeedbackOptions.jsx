@@ -1,4 +1,3 @@
-// import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { FeedbackOptionsStyled } from "components/FeedbackOptions/FeedbackOptions.styled";
 

@@ -1,4 +1,3 @@
-// import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { StatisticsStyled } from "components/Statistics/Statistics.styled";
 
